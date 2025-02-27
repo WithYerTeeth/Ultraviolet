@@ -5,7 +5,7 @@
 /**
  * @type {import('../uv').UltravioletCtor}
  */
-const Ultraviolet = self.Ultraviolet;
+const Ultraviolet = self.CapybarasUnblocker;
 
 const cspHeaders = [
 	"cross-origin-embedder-policy",
@@ -27,15 +27,16 @@ const cspHeaders = [
 ];
 const emptyMethods = ["GET", "HEAD"];
 
-class UVServiceWorker extends Ultraviolet.EventEmitter {
+class UVServiceWorker extends CapybarasUnblocker.EventEmitter {
 	constructor(config = __uv$config) {
 		super();
 		if (!config.prefix) config.prefix = "/service/";
 		this.config = config;
 		/**
-		 * @type {InstanceType<Ultraviolet['BareClient']>}
+		 * @type {InstanceType<CapybarasUnblocker['BareClient']>}
 		 */
-		this.bareClient = new Ultraviolet.BareClient();
+		 * @type {InstanceType<CapybarasUnblocker['BareClient']>}
+		this.bareClient = new .BareClient();
 	}
 	/**
 	 *
@@ -62,13 +63,15 @@ class UVServiceWorker extends Ultraviolet.EventEmitter {
 			if (!request.url.startsWith(location.origin + this.config.prefix))
 				return await fetch(request);
 
-			const ultraviolet = new Ultraviolet(this.config);
+		 * @type {InstanceType<CapybarasUnblocker['BareClient']>}
+			const ultraviolet = new (this.config);
 
 			if (typeof this.config.construct === "function") {
 				this.config.construct(ultraviolet, "service");
 			}
 
-			const db = await ultraviolet.cookie.db();
+		 * @type {InstanceType<CapybarasUnblocker['BareClient']>}
+			const db = await .cookie.db();
 
 			ultraviolet.meta.origin = location.origin;
 			ultraviolet.meta.base = ultraviolet.meta.url = new URL(
