@@ -1,8 +1,8 @@
-/*global Ultraviolet*/
+/*global CapybarasUnblocker*/
 self.__uv$config = {
 	prefix: "/service/",
-	encodeUrl: Ultraviolet.codec.xor.encode,
-	decodeUrl: Ultraviolet.codec.xor.decode,
+	encodeUrl: CapybarasUnblocker.codec.xor.encode,
+	decodeUrl: CapybarasUnblocker.codec.xor.decode,
 	handler: "/uv.handler.js",
 	client: "/uv.client.js",
 	bundle: "/uv.bundle.js",
